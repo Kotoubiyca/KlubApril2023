@@ -1,0 +1,52 @@
+@import "@/styles/variables.module";
+
+.container {
+  background: #FFFFFF;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 0;
+}
+
+.wrapper {
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  will-change: transform;
+}
+
+.item {
+  padding: 0;
+  display: inline-block;
+  margin-right: 3rem;
+  position: relative;
+
+  $arrowWidth: 18;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+    }
+
+    &::after {
+      height: 2px;
+      width: $arrowWidth + px;
+      background: $warning;
+      left: calc(100% + 10px);
+      top: calc(50% - 1px);
+    }
+
+    &::before {
+      top: 6px;
+      width: ($arrowWidth / 2) + px;
+      height: ($arrowWidth / 2) + px;
+      left: calc(100% + 18px);
+      border-right: 1px solid $warning;
+      border-bottom: 1px solid $warning;
+      transform: rotate(-45deg);
+    }
+}

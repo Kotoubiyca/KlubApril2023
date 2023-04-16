@@ -1,0 +1,45 @@
+@import "@/styles/variables.module";
+
+.container {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.inner {
+  display: flex;
+}
+
+.title,
+.text {
+  flex-basis: 33.33%;
+}
+
+.title {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 22px;
+    background: currentColor;
+    top: 0;
+    left: 0;
+  }
+}
+
+.text {
+  padding: 0 17px;
+  box-sizing: border-box;
+
+  &Title {
+    font-size: 16px;
+    padding-bottom: 84px;
+  }
+  &Content {
+    font-size: 24px;
+  }
+}

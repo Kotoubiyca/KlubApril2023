@@ -1,0 +1,95 @@
+@import "@/styles/variables.module";
+
+.container {
+  background: #d34a4a;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  height: 100vh;
+  padding-top: $headerHeight;
+  padding-bottom: 8%;
+}
+
+.title {
+  font-size: 80px;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 80%;
+  margin-bottom: auto;
+
+  span {
+    text-decoration: underline;
+  }
+}
+
+.text {
+  font-size: 16px;
+  line-height: 23px;
+  width: 280px;
+}
+
+.btn {
+  font-family: var(--font-main);
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  transform: translateZ(0);
+  transition: color 0.25s  cubic-bezier(0.28,0.44,0.49,1);
+  border: 1px solid $black;
+  border-radius: 1.6rem;
+  padding: 12px 24px;
+  overflow: hidden;
+  color: currentColor;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  outline: none;
+  margin-top: 18px;
+
+  &::before {
+    position: absolute;
+    bottom: -0.1rem;
+    left: 0;
+    transform: translate3d(0,100%,0);
+    z-index: -100;
+    transition: 0.25s cubic-bezier(0.28,0.44,0.49,1);
+    background-color: $black;
+    width: 100%;
+    height: calc(100% + 0.2rem);
+    content: "";
+    color: #f4f4f4;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &::before {
+      transform: translateZ(0);
+    }
+  }
+}
+
+.hoveredText {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  img {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 5;
+  }
+}

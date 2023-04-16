@@ -1,0 +1,163 @@
+@import "@/styles/variables.module";
+
+.container {
+  background: $footer-bg;
+  color: #fff;
+  overflow: hidden;
+}
+
+.inner {
+  padding: 60px 0 55px;
+  display: flex;
+  height: 500px;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  width: 25%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+
+  &Content {
+    display: flex;
+    margin-bottom: auto;
+  }
+}
+
+.title {
+  font-size: 60px;
+  line-height: 1;
+  padding-bottom: 33px;
+  font-weight: 400;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+
+  li {
+    margin-right: 17px;
+  }
+
+  &Right {
+    color: #929292;
+  }
+
+  &Left {
+    margin-top: auto;
+  }
+}
+
+.menuLinks {
+  display: flex;
+  font-size: 30px;
+  list-style: none;
+
+  li {
+    padding-left: 40px;
+    position: relative;
+
+    &:not(:last-of-type) {
+      margin-right: 40px;
+    }
+
+    $arrowWidth: 26;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+    }
+
+    &::after {
+      height: 2px;
+      width: $arrowWidth + px;
+      background: $warning;
+      right: calc(100% - 30px);
+      top: 15px;
+    }
+
+    &::before {
+      top: 9px;
+      right: calc(100% - 28px);
+      width: ($arrowWidth * 0.5) + px;
+      height: ($arrowWidth * 0.5) + px;
+      border-right: 2px solid $warning;
+      border-bottom: 2px solid $warning;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.linkedin {
+  position: relative;
+
+  $arrowWidth: 16;
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: '';
+  }
+
+  &::after {
+    height: 2px;
+    width: $arrowWidth + px;
+    background: $warning;
+    left: calc(100% + 5px);
+    top: 10px;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    top: 4px;
+    left: calc(100% + 10px);
+    width: ($arrowWidth * 0.5) + px;
+    height: ($arrowWidth * 0.5) + px;
+    border-right: 2px solid $warning;
+    border-top: 2px solid $warning;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+
+  &Container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1;
+
+    &:hover {
+      .linkText {
+        transform: translate(0px, -101%);
+
+        &__twin {
+          transform: translate(0px, 0%);
+        }
+      }
+    }
+  }
+
+  &Text {
+    position: relative;
+    z-index: 2;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+
+    &__twin {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      transform: translate(0, 101%);
+    }
+  }
+}

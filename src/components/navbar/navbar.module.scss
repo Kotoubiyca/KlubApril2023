@@ -1,0 +1,61 @@
+@import "@/styles/variables.module";
+
+.navbar {
+  display: flex;
+  list-style: none;
+
+  &Item {
+    padding: 8px 17px;
+    color: $black;
+    display: flex;
+    align-items: center;
+
+    &Content {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      line-height: 1;
+    }
+
+    &Text {
+      position: relative;
+      z-index: 2;
+      transition: transform 1s cubic-bezier(.23, 1, .32, 1);
+
+      &__twin {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        transform: translate(0,101%);
+      }
+    }
+
+    &:hover {
+      .navbarItemText {
+        transform: translate(0px, -101%);
+
+        &__twin {
+          transform: translate(0px, 0%);
+        }
+      }
+    }
+  }
+
+  &Hiring {
+    border-radius: 20px;
+    background: #fff;
+    margin-left: 17px;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #55D05A;
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "@/styles/variables.module";
+
+.container {
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+}
+
+.imgContainer {
+  flex: 1 0 50%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.textContainer {
+  padding-left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  h5 {
+    font-size: 60px;
+    line-height: 1;
+    padding-bottom: 27px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 30px;
+  }
+}
