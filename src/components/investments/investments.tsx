@@ -23,7 +23,7 @@ export const Investments = () => {
       linkText: 'Ekobot'
     },
   ]
-  const target = useRef(items.map(() => createRef()))
+  const target: React.MutableRefObject<React.RefObject<unknown>[]> = useRef(items.map(() => createRef()))
   let section = useRef(null)
   
   useEffect(() => {
@@ -65,7 +65,8 @@ export const Investments = () => {
         
         <div className={styles.items}>
           {items.map((item, index) => (
-            <div className={styles.item} key={index} ref={e => target.current[index] = e}>
+            // @ts-ignore
+            <div className={styles.item} key={index} ref={(e) => target.current[index] = e}>
               <img src={item.img} alt={item.title}/>
               <h6>{item.title}</h6>
               <div>

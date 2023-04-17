@@ -10,14 +10,15 @@ export const Hero = () => {
   
   gsap.registerPlugin({
     name: "gradient",
-    init(target, value) {
-      let forceDeg = value => ~value.indexOf("deg") ? value : (value = value.split("(")) && value.shift() + "(180deg, " + value.join("(");
+    init(target: any, value: string) {
+      let forceDeg = (value: any) => ~value.indexOf("deg") ? value : (value = value.split("(")) && value.shift() + "(180deg, " + value.join("(");
+      // @ts-ignore
       this.add(target.style, "backgroundImage", forceDeg(window.getComputedStyle(target).backgroundImage + ""), forceDeg(value));
     }
   });
   
-  const initShowImage = ( items ) => {
-    items.forEach((el) => {
+  const initShowImage = ( items: any  ) => {
+    items.forEach((el: any ) => {
       const image = el.current.querySelector('img');
       
       el.current.addEventListener('mouseenter', () => {
@@ -28,7 +29,7 @@ export const Hero = () => {
         gsap.to(image, { autoAlpha: 0 })
       })
       
-      el.current.addEventListener('mousemove', (e) => {
+      el.current.addEventListener('mousemove', (e: {offsetX: number}) => {
         gsap.set(image, { x: e.offsetX - 100 })
       })
     })
@@ -50,7 +51,7 @@ export const Hero = () => {
       <div className={`container-inner ${styles.inner}`}>
         <h1 className={styles.title}>
           No-nonsense funding for tech companies
-          in <span className={styles.hoveredText} ref={food}> food <img src="/food.png"/> </span> and <span className={styles.hoveredText} ref={energy}>energy <img src="/energy.png"/></span>
+          in <span className={styles.hoveredText} ref={food}> food <img src="/food.png" alt="Food"/> </span> and <span className={styles.hoveredText} ref={energy}>energy <img src="/energy.png" alt="Energy"/></span>
         </h1>
         
         <p className={styles.text}>

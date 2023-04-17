@@ -18,9 +18,10 @@ export const Marquee = () => {
   
   let target = useRef(items.map(() => createRef()))
   
-  const horizontalLoop = (items, config) => {
+  const horizontalLoop = (items: any, config: any) => {
     items = gsap.utils.toArray(items);
     config = config || {};
+    // @ts-ignore
     let tl = gsap.timeline({repeat: config.repeat, paused: config.paused, defaults: {ease: "none"}, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)}),
       length = items.length,
       startX = items[0].offsetLeft,
@@ -33,7 +34,7 @@ export const Marquee = () => {
       totalWidth, curX, distanceToStart, distanceToLoop, item, i;
     gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
       xPercent: (i, el) => {
-        let w = widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+        let w = widths[i] = parseFloat(gsap.getProperty(el, "width", "px") as string);
         xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / w * 100 + gsap.getProperty(el, "xPercent"));
         return xPercents[i];
       }
